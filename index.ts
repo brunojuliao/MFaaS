@@ -1,5 +1,6 @@
 // oak is pretty much similar to express in nodejs
 import { Application } from 'https://deno.land/x/oak/mod.ts';
+import { oakCors } from "https://deno.land/x/cors/mod.ts";
 
 const APP_HOST = '127.0.0.1';
 const APP_PORT = 5000;
@@ -11,6 +12,7 @@ import router from './routes/routes.ts';
 const app = new Application()
 
 // Add Routes
+app.use(oakCors());
 app.use(router.routes())
 app.use(router.allowedMethods())
 
